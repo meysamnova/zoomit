@@ -1,3 +1,3 @@
-# zoomit_bloc
+# zoomit
 
 A new Flutter project.
