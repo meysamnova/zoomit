@@ -5,8 +5,8 @@ This is a Flutter app sample using the zoomit.ir API.
 ## Features
 
 - Display latest news 
-- View news details
-- Save news for later
+- open news in browser 
+- show number of comments
 
 ## Using the API
 
