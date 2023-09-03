@@ -9,7 +9,7 @@ class ZoomitModel {
     required this.isAdvertisement,
     required this.publishedDate,
     required this.readingTime,
-    required this.author,
+    // required this.author,
     required this.coverImageLink,
     required this.linkIsFollow,
     required this.type,
@@ -26,7 +26,7 @@ class ZoomitModel {
   late final bool isAdvertisement;
   late final String publishedDate;
   late final int readingTime;
-  late final Author author;
+  // late final Author author;
   late final CoverImageLink coverImageLink;
   late final bool linkIsFollow;
   late final String type;
@@ -44,7 +44,7 @@ class ZoomitModel {
     isAdvertisement = json['isAdvertisement'];
     publishedDate = json['publishedDate'];
     readingTime = json['readingTime'];
-    author = Author.fromJson(json['author']);
+    // author = Author.fromJson(json['author']);
     coverImageLink = CoverImageLink.fromJson(json['coverImageLink']);
     linkIsFollow = json['linkIsFollow'];
     type = json['type'];
@@ -53,56 +53,29 @@ class ZoomitModel {
     likesCount = json['likesCount'];
   }
 
-  Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['id'] = id;
-    data['title'] = title;
-    data['slug'] = slug;
-    data['lead'] = lead;
-    data['subHeadline'] = subHeadline;
-    data['isFeatured'] = isFeatured;
-    data['isAdvertisement'] = isAdvertisement;
-    data['publishedDate'] = publishedDate;
-    data['readingTime'] = readingTime;
-    data['author'] = author.toJson();
-    data['coverImageLink'] = coverImageLink.toJson();
-    data['linkIsFollow'] = linkIsFollow;
-    data['type'] = type;
-    data['mainCategoryId'] = mainCategoryId;
-    data['totalDiscussCount'] = totalDiscussCount;
-    data['likesCount'] = likesCount;
-    return data;
-  }
+
 }
 
-class Author {
-  Author({
-    required this.userId,
-    required this.fullName,
-    required this.avatarId,
-    required this.articlesCount,
-  });
-  late final String userId;
-  late final String fullName;
-  late final String avatarId;
-  late final int articlesCount;
+// class Author {
+//   Author({
+//     required this.userId,
+//     required this.fullName,
+//     required this.avatarId,
+//     required this.articlesCount,
+//   });
+//   late final String userId;
+//   late final String fullName;
+//   late final String avatarId;
+//   late final int articlesCount;
 
-  Author.fromJson(Map<String, dynamic> json) {
-    userId = json['userId'];
-    fullName = json['fullName'];
-    avatarId = json['avatarId'];
-    articlesCount = json['articlesCount'];
-  }
+//   Author.fromJson(Map<String, dynamic> json) {
+//     userId = json['userId'];
+//     fullName = json['fullName'];
+//     avatarId = json['avatarId'];
+//     articlesCount = json['articlesCount'];
+//   }
 
-  Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['userId'] = userId;
-    data['fullName'] = fullName;
-    data['avatarId'] = avatarId;
-    data['articlesCount'] = articlesCount;
-    return data;
-  }
-}
+// }
 
 class CoverImageLink {
   CoverImageLink({
@@ -127,16 +100,5 @@ class CoverImageLink {
     preview = json['preview'];
     width = json['width'];
     height = json['height'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['id'] = id;
-    data['fileName'] = fileName;
-    data['alt'] = alt;
-    data['preview'] = preview;
-    data['width'] = width;
-    data['height'] = height;
-    return data;
   }
 }

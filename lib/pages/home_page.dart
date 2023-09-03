@@ -2,8 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:zoomit_bloc/bloc/home_bloc.dart';
-import 'package:zoomit_bloc/bloc/home_state.dart';
+import 'package:zoomit_bloc/bloc/home_bloc/home_bloc.dart';
+import 'package:zoomit_bloc/bloc/home_bloc/home_state.dart';
+import 'package:zoomit_bloc/cubit/theme_cubit.dart';
+import 'package:zoomit_bloc/theme/constant.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,21 +17,23 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
           child: Column(
         children: [
-          const Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-            // IconButton(
-            //     onPressed: () {
-            //       GetDataEvent();
-            //     },
-            //     icon: const Icon(Icons.refresh)),
-            Spacer(),
-            Padding(
+          Row(children: [
+            IconButton(
+                onPressed: () {
+                  BlocProvider.of<ThemeCubit>(context).toggleTheme();
+                },
+                icon: const Icon(Icons.sunny)),
+            const Spacer(),
+            const Padding(
                 padding: EdgeInsets.all(8.0), child: Text('آخرین مطالب'))
           ]),
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
               if (state is LadingState) {
                 return const Expanded(
-                    child: Center(child: CircularProgressIndicator()));
+                    child: Center(
+                        child:
+                            CircularProgressIndicator(color: kLightBlueColor)));
               }
               if (state is LoadedState) {
                 return Expanded(
@@ -42,6 +46,7 @@ class HomePage extends StatelessWidget {
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
+                              //!image
                               SizedBox(
                                 height: 100,
                                 width: 100,
@@ -60,14 +65,15 @@ class HomePage extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
+                                    //!title
                                     TextButton(
                                         child: Text(
                                           state.dataList[index].title,
-                                
                                           softWrap: true,
-                                          textAlign: TextAlign.right,textDirection: TextDirection.rtl,
+                                          textAlign: TextAlign.right,
+                                          textDirection: TextDirection.rtl,
                                           style: TextStyle(
-                                              fontSize: width < 800 ? 13 : 20,),
+                                              fontSize: width < 800 ? 13 : 20),
                                         ),
                                         onPressed: () async {
                                           final Uri url = Uri.parse(
@@ -78,14 +84,17 @@ class HomePage extends StatelessWidget {
                                                 'Could not launch $url');
                                           }
                                         }),
+                                        //!lead
                                     Padding(
                                       padding: const EdgeInsets.only(right: 7),
                                       child: Text(state.dataList[index].lead,
                                           softWrap: true,
-                                          textAlign: TextAlign.right,textDirection: TextDirection.rtl,
+                                          textAlign: TextAlign.right,
+                                          textDirection: TextDirection.rtl,
                                           style: TextStyle(
                                               fontSize: width < 800 ? 13 : 20)),
                                     ),
+                                    //!comment
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
