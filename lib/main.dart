@@ -35,15 +35,9 @@ class MainApp extends StatelessWidget {
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
-          if (state is LoadedTheme) {
-            return MaterialApp(
-              theme: ThemeConfig.lightTheme,
-              darkTheme: ThemeConfig.darkTheme,
-              themeMode: state.themeMode,
-              debugShowCheckedModeBanner: false,
-              home: const HomePage(),
-            );
-          }else{
+                      final box = GetStorage();
+
+          if (box.read('theme') == null) {
             return MaterialApp(
               theme: ThemeConfig.lightTheme,
               darkTheme: ThemeConfig.darkTheme,
@@ -52,6 +46,19 @@ class MainApp extends StatelessWidget {
               home: const HomePage(),
             );
           }
+          if (state is LoadedTheme) {
+            return MaterialApp(
+              theme: ThemeConfig.lightTheme,
+              darkTheme: ThemeConfig.darkTheme,
+              themeMode: state.themeMode,
+              debugShowCheckedModeBanner: false,
+              home: const HomePage(),
+            );
+          }
+
+
+
+          return Container();
        
         },
       ),

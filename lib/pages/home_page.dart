@@ -6,7 +6,6 @@ import 'package:zoomit_bloc/bloc/home_bloc/home_bloc.dart';
 import 'package:zoomit_bloc/bloc/home_bloc/home_state.dart';
 import 'package:zoomit_bloc/bloc/theme_bloc/theme_bloc.dart';
 import 'package:zoomit_bloc/bloc/theme_bloc/theme_event.dart';
-import 'package:zoomit_bloc/pages/comment_page.dart';
 import 'package:zoomit_bloc/theme/constant.dart';
 
 class HomePage extends StatelessWidget {
@@ -44,7 +43,7 @@ class HomePage extends StatelessWidget {
                   itemBuilder: (context, index) => Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(left: 8,right: 8),
                         child: Column(
                           children: [
                             Row(
@@ -108,34 +107,32 @@ class HomePage extends StatelessWidget {
                                   )
                                 ]),
                             //!comment
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(state.dataList[index].totalDiscussCount
-                                    .toString()),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const CommentPage()));
-                                      },
-                                      icon: const Icon(
-                                          Icons.chat_bubble_outline,
-                                          size: 15)),
-                                ),
-                                const SizedBox(width: 20),
-                                Text(
-                                  state.dataList[index].readingTime.toString(),
-                                  style: const TextStyle(fontSize: 12),
-                                ),
-                                const Icon(Icons.timer_outlined),
-                                const SizedBox(width: 20),
-                                Text(state.dataList[index].isAdvertisement? 'تبلیغات':'')
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Row(
+                                
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                      state.dataList[index].isAdvertisement
+                                          ? 'تبلیغات'
+                                          : '',
+                                      style: const TextStyle(color: kRedColor)),
+                                  const SizedBox(width: 20),
+                            
+                                  Text(state.dataList[index].totalDiscussCount.toString(),style: const TextStyle(fontSize: 12)),
+                                  const SizedBox(width: 5),
+                                  const Icon(Icons.chat_bubble_outline, size: 15),
+                                  const SizedBox(width: 20),
+                                  Text(
+                                      state.dataList[index].readingTime
+                                          .toString(),
+                                      style: const TextStyle(fontSize: 12)),
+                                  const SizedBox(width: 3),
+                                  const Icon(Icons.timer_outlined,size: 18),
+                                  const SizedBox(width: 20),
+                                ],
+                              ),
                             )
                           ],
                         ),
