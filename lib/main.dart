@@ -35,7 +35,7 @@ class MainApp extends StatelessWidget {
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
-                      final box = GetStorage();
+          final box = GetStorage();
 
           if (box.read('theme') == null) {
             return MaterialApp(
@@ -56,10 +56,7 @@ class MainApp extends StatelessWidget {
             );
           }
 
-
-
           return Container();
-       
         },
       ),
     );
