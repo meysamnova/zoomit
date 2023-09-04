@@ -10,4 +10,11 @@ class Network {
         return response;
 
   }
+    static getComment() async {
+    final dio = Dio();
+    Response response;
+    response = await dio.get(
+        'https://api2.zoomit.ir/discussion/api/feedbacks?topicId=402115&topicType=Article&sortBy=MostLike&offset=1&size=10&commentDepthLevel=5');
+    return response;
+  }
 }
