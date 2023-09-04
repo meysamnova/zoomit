@@ -18,7 +18,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         zoomitList.add(ZoomitModel.fromJson(element));
       }
       emit(LoadedState(zoomitList));
-
     });
 
   }
