@@ -7,6 +7,7 @@ This is a Flutter app sample using the zoomit.ir API.
 - Display latest news 
 - open news in browser 
 - show number of comments
+- switch light/dark theme
 
 ## Using the API
 
