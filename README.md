@@ -2,7 +2,8 @@
 
 This is a news Flutter app using the zoomit.ir API and using Bloc for state management.
 ## Screenshot
-![Uploading Screenshot_20230905-174254~2_google-pixel4xl-ohsoorange-portrait.png…]()
+![Screenshot_20230905-174254~2_google-pixel4xl-ohsoorange-portrait](https://github.com/meysamnova/zoomit/assets/69634324/f92de252-1921-4626-9ddf-f472d5629d72)
+
 
 ## Features
 
