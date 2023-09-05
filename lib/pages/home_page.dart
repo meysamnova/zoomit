@@ -61,18 +61,18 @@ class HomePage extends StatelessWidget {
                                     case 0:
                                       BlocProvider.of<HomeBloc>(context)
                                           .add(GetDataGuideEvent());
-                                          ss=0;
+                                          refreshIndicatorIndex =0;
                                       break;
                                     case 1:
                                       BlocProvider.of<HomeBloc>(context)
                                           .add(GetDataMostVisitedMonthEvent());
-                                          ss = 1;
+                                          refreshIndicatorIndex = 1;
 
                                       break;
                                     case 2:
                                       BlocProvider.of<HomeBloc>(context)
                                           .add(GetDataEvent());
-                                          ss = 2;
+                                          refreshIndicatorIndex = 2;
 
                                       break;
                                       
@@ -97,7 +97,7 @@ class HomePage extends StatelessWidget {
                   color: kLightBlueColor,
                   onRefresh: () {
                     return Future(() =>
-                        BlocProvider.of<HomeBloc>(context).add(ss==2?GetDataEvent(): ss==0?GetDataGuideEvent(): GetDataMostVisitedMonthEvent()));
+                        BlocProvider.of<HomeBloc>(context).add(refreshIndicatorIndex ==2?GetDataEvent(): refreshIndicatorIndex ==0?GetDataGuideEvent(): GetDataMostVisitedMonthEvent()));
                   },
                   child: ListView.builder(
                     itemCount: state.dataList.length,

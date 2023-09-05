@@ -10,4 +10,4 @@ const kGreenColor = Colors.green;
 const kLightBlueColor = Color(0xFF5886FF);
 const kGreyColor = Color.fromARGB(160, 121, 121, 121);
 const newTaskBorder = Color.fromARGB(11, 176, 176, 176);
-int ss = 2;
+int refreshIndicatorIndex = 2;
