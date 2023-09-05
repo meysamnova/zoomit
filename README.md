@@ -2,7 +2,7 @@
 
 This is a news Flutter app using Bloc for state management.
 ## Screenshot
-![smartphone-mockup-with-sea-star](https://github.com/meysamnova/zoomit/assets/69634324/b3d4b77f-5fbd-4474-9467-b141df092002)
+![smartphone-mockup-with-sea-star(1)](https://github.com/meysamnova/zoomit/assets/69634324/a793b921-f11b-46b9-b817-c3e922c74c5f)
 
 ## Features
 
