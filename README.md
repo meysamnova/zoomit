@@ -1,6 +1,6 @@
 # zoomit
 
-This is a Flutter app sample using the zoomit.ir API.
+This is a news Flutter app using the zoomit.ir API and using Bloc for state management.
 
 ## Features
 
