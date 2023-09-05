@@ -7,13 +7,23 @@ import 'package:zoomit_bloc/bloc/home_bloc/home_event.dart';
 import 'package:zoomit_bloc/bloc/home_bloc/home_state.dart';
 import 'package:zoomit_bloc/bloc/theme_bloc/theme_bloc.dart';
 import 'package:zoomit_bloc/bloc/theme_bloc/theme_event.dart';
+import 'package:zoomit_bloc/cubit/chips_cubit.dart';
 import 'package:zoomit_bloc/theme/constant.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
+
+
     double width = MediaQuery.of(context).size.width;
+
+    final List<String> chipsList = [
+
+      'راهنمای خرید',
+      'پربازدیدهای ماه',
+            'آخرین مطالب',
+    ];
 
     return Scaffold(
       body: SafeArea(
@@ -26,9 +36,53 @@ class HomePage extends StatelessWidget {
                 },
                 icon: const Icon(Icons.sunny)),
             const Spacer(),
-            const Padding(
-                padding: EdgeInsets.all(8.0), child: Text('آخرین مطالب'))
+            const Padding(padding: EdgeInsets.all(8.0), child: Text('زومیت'))
           ]),
+          Padding(
+            padding: const EdgeInsets.only(right: 5),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                BlocBuilder<ChipsCubit, int>(
+                  builder: (context, state) {
+                    return Wrap(
+                        spacing: 8,
+                        children: List.generate(
+                            chipsList.length,
+                            (index) => ChoiceChip(
+                                 materialTapTargetSize:MaterialTapTargetSize.shrinkWrap,
+                                 visualDensity:  const VisualDensity(horizontal: 0, vertical: -4) ,                                                   
+                                label: Text(chipsList[index],style: const TextStyle(fontSize: 12)),
+                                selected: state == index,
+                                onSelected: (value) {
+                                  BlocProvider.of<ChipsCubit>(context)
+                                      .indexChips(index);
+                                  switch (index) {
+                                    case 0:
+                                      BlocProvider.of<HomeBloc>(context)
+                                          .add(GetDataGuideEvent());
+                                          ss=0;
+                                      break;
+                                    case 1:
+                                      BlocProvider.of<HomeBloc>(context)
+                                          .add(GetDataMostVisitedMonthEvent());
+                                          ss = 1;
+
+                                      break;
+                                    case 2:
+                                      BlocProvider.of<HomeBloc>(context)
+                                          .add(GetDataEvent());
+                                          ss = 2;
+
+                                      break;
+                                      
+                                  }
+                                })));
+                  },
+                )
+              ]),
+            ),
+          ),
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
               if (state is LadingState) {
@@ -40,10 +94,10 @@ class HomePage extends StatelessWidget {
               if (state is LoadedState) {
                 return Expanded(
                     child: RefreshIndicator(
-                      color: kLightBlueColor,
+                  color: kLightBlueColor,
                   onRefresh: () {
                     return Future(() =>
-                        BlocProvider.of<HomeBloc>(context).add(GetDataEvent()));
+                        BlocProvider.of<HomeBloc>(context).add(ss==2?GetDataEvent(): ss==0?GetDataGuideEvent(): GetDataMostVisitedMonthEvent()));
                   },
                   child: ListView.builder(
                     itemCount: state.dataList.length,
