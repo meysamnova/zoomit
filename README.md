@@ -1,6 +1,6 @@
 # zoomit
 
-This is a news Flutter app using the zoomit.ir API and using Bloc for state management.
+This is a news Flutter app using Bloc for state management.
 ## Screenshot
 ![smartphone-mockup-with-sea-star](https://github.com/meysamnova/zoomit/assets/69634324/b3d4b77f-5fbd-4474-9467-b141df092002)
 
