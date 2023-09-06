@@ -8,7 +8,7 @@ import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_state.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_bloc.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/chips_cubit.dart';
-import 'package:zoomit_bloc/theme/constant.dart';
+import 'package:zoomit_bloc/constant.dart';
 
 class HomePage extends StatelessWidget {
    const HomePage({super.key});

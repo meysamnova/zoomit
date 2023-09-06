@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:zoomit_bloc/bussiness_logic/bloc/comment_bloc/comment_bloc.dart';
-import 'package:zoomit_bloc/bussiness_logic/bloc/comment_bloc/comment_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_bloc.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_bloc.dart';
@@ -10,6 +8,7 @@ import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_state.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/chips_cubit.dart';
 import 'package:zoomit_bloc/presentation/pages/home_page.dart';
+
 import 'package:zoomit_bloc/theme/theme_manager.dart';
 
 void main() async {
@@ -26,9 +25,6 @@ class MainApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => HomeBloc()..add(GetDataEvent()),
-        ),
-        BlocProvider(
-          create: (context) => CommentBloc()..add(GetCommentEvent()),
         ),
         BlocProvider(
           create: (context) => ThemeBloc()..add(SaveTheme()),

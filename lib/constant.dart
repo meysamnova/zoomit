@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 const Color kpurplecolor = Color(0xff6c63ff);
@@ -11,3 +12,4 @@ const kLightBlueColor = Color(0xFF5886FF);
 const kGreyColor = Color.fromARGB(160, 121, 121, 121);
 const newTaskBorder = Color.fromARGB(11, 176, 176, 176);
 int refreshIndicatorIndex = 2;
+final dio = Dio();

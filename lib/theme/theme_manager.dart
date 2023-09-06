@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zoomit_bloc/theme/constant.dart';
+import 'package:zoomit_bloc/constant.dart';
 
 class ThemeConfig {
 //! lIGHT
   static ThemeData get lightTheme {
     return ThemeData(
-      // elevatedButtonTheme: ElevatedButtonThemeData(
-      //     style: ElevatedButton.styleFrom(
-      //         backgroundColor: Colors.transparent,
-      //         foregroundColor: Colors.black,
-      //         shape: const RoundedRectangleBorder(
-      //             borderRadius: BorderRadius.all(Radius.circular(20.0))))),
       scaffoldBackgroundColor: const Color.fromARGB(2555, 2555, 2555, 255),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
