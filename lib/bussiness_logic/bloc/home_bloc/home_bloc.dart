@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zoomit_bloc/bloc/home_bloc/home_event.dart';
-import 'package:zoomit_bloc/bloc/home_bloc/home_state.dart';
+import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_event.dart';
+import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_state.dart';
 
-import 'package:zoomit_bloc/model/zoomit_model.dart';
-import 'package:zoomit_bloc/network/network.dart';
+import 'package:zoomit_bloc/data/model/zoomit_model.dart';
+import 'package:zoomit_bloc/data/network/network.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   static List<ZoomitModel> zoomitList = [];

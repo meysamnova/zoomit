@@ -1,4 +1,4 @@
-import 'package:zoomit_bloc/model/zoomit_model.dart';
+import 'package:zoomit_bloc/data/model/zoomit_model.dart';
 
 abstract class HomeState {}
 

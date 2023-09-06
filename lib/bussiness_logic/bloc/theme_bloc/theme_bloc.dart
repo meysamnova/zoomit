@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:zoomit_bloc/bloc/theme_bloc/theme_event.dart';
-import 'package:zoomit_bloc/bloc/theme_bloc/theme_state.dart';
+import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_event.dart';
+import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   final box = GetStorage();
