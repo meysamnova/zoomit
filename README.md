@@ -5,11 +5,11 @@ This is a news Flutter app using Bloc for state management.
 ![smartphone-mockup-with-sea-star(1)](https://github.com/meysamnova/zoomit/assets/69634324/a793b921-f11b-46b9-b817-c3e922c74c5f)
 
 ## Features
-
+- Filter news
 - Display latest news 
-- open news in browser 
-- show number of comments
-- switch light/dark theme
+- Open news in browser 
+- Show number of comments
+- Switch light/dark theme
 
 ## Using the API
 
