@@ -1,4 +1,4 @@
-# zoomit
+# Zoomit
 
 This is a news Flutter app using Bloc for state management.
 ## Screenshot
