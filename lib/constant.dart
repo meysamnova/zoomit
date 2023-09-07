@@ -13,3 +13,10 @@ const kGreyColor = Color.fromARGB(160, 121, 121, 121);
 const newTaskBorder = Color.fromARGB(11, 176, 176, 176);
 int refreshIndicatorIndex = 2;
 final dio = Dio();
+const List<String> chipsList = [
+  'راهنمای خرید',
+  'پربازدیدهای ماه',
+  'آخرین مطالب',
+];
+
+final scaffoldKey = GlobalKey<ScaffoldState>();

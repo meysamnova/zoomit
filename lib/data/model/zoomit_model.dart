@@ -26,7 +26,7 @@ class ZoomitModel {
   late final bool isAdvertisement;
   late final String publishedDate;
   late final int readingTime;
-  // late final Author author;
+  late final Author? author;
   late final CoverImageLink coverImageLink;
   late final bool linkIsFollow;
   late final String type;
@@ -44,7 +44,7 @@ class ZoomitModel {
     isAdvertisement = json['isAdvertisement'];
     publishedDate = json['publishedDate'];
     readingTime = json['readingTime'];
-    // author = Author.fromJson(json['author']);
+    author = Author.fromJson(json['author']);
     coverImageLink = CoverImageLink.fromJson(json['coverImageLink']);
     linkIsFollow = json['linkIsFollow'];
     type = json['type'];
@@ -56,26 +56,26 @@ class ZoomitModel {
 
 }
 
-// class Author {
-//   Author({
-//     required this.userId,
-//     required this.fullName,
-//     required this.avatarId,
-//     required this.articlesCount,
-//   });
-//   late final String userId;
-//   late final String fullName;
-//   late final String avatarId;
-//   late final int articlesCount;
+class Author {
+  Author({
+    required this.userId,
+    required this.fullName,
+    required this.avatarId,
+    required this.articlesCount,
+  });
+  late final String userId;
+  late final String fullName;
+  late final String avatarId;
+  late final int articlesCount;
 
-//   Author.fromJson(Map<String, dynamic> json) {
-//     userId = json['userId'];
-//     fullName = json['fullName'];
-//     avatarId = json['avatarId'];
-//     articlesCount = json['articlesCount'];
-//   }
+  Author.fromJson(Map<String, dynamic> json) {
+    userId = json['userId'];
+    fullName = json['fullName'];
+    avatarId = json['avatarId'];
+    articlesCount = json['articlesCount'];
+  }
 
-// }
+}
 
 class CoverImageLink {
   CoverImageLink({

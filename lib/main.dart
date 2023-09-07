@@ -8,7 +8,6 @@ import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_state.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/chips_cubit.dart';
 import 'package:zoomit_bloc/presentation/pages/home_page.dart';
-
 import 'package:zoomit_bloc/theme/theme_manager.dart';
 
 void main() async {
@@ -52,10 +51,9 @@ class MainApp extends StatelessWidget {
               darkTheme: ThemeConfig.darkTheme,
               themeMode: state.themeMode,
               debugShowCheckedModeBanner: false,
-              home:   const HomePage(),
+              home: const HomePage(),
             );
           }
-
           return Container();
         },
       ),

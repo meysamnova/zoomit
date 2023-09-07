@@ -10,7 +10,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc() : super(LadingState()) {
     
-
     on<GetDataEvent>((event, emit) async {
       var response = await Network.getApi();
       List<dynamic> rawData = response.data['source'];
