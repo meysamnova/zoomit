@@ -104,6 +104,7 @@ class HomePage extends StatelessWidget {
                       child: ListView.builder(
                         itemCount: state.dataList.length,
                         itemBuilder: (context, index) => GestureDetector(
+                          behavior: HitTestBehavior.translucent,
                           onLongPress: () {
                             newsDetailDialog(context, width, state, index);
                           },
@@ -195,7 +196,7 @@ class HomePage extends StatelessWidget {
                                         final testState = context
                                             .watch<ShowAllDetailsCubit>()
                                             .state;
-                                        return testState.isShow
+                                        return testState.isHide
                                             ? Padding(
                                                 padding: const EdgeInsets.only(
                                                     top: 5),

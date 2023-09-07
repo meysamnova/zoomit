@@ -3,19 +3,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zoomit_bloc/constant.dart';
 
 class ShowAllDetailsState {
-   bool  isShow;
+   bool  isHide;
 
-  ShowAllDetailsState({required this.isShow});
+  ShowAllDetailsState({required this.isHide});
 }
 //!cubit
 
 class ShowAllDetailsCubit extends Cubit<ShowAllDetailsState> {
-  ShowAllDetailsCubit() : super(ShowAllDetailsState(isShow: box.read('isShow') ?? true?true:false));
+  ShowAllDetailsCubit() : super(ShowAllDetailsState(
+            isHide: box.read('isHide') ?? false?false:true));
 
   void showAllDetails(){
-   emit(ShowAllDetailsState(isShow: state.isShow = !state.isShow));
+   emit(ShowAllDetailsState(isHide: state.isHide = !state.isHide));
 
-   box.write('isShow', state.isShow);
-         state.isShow = box.read('isShow') ?? true;
+   box.write('isHide', state.isHide);
+         state.isHide = box.read('isHide') ?? false;
   }
 }
