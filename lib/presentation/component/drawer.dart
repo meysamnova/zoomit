@@ -35,9 +35,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 children: [
                   Switch(
                       activeColor: kGreyColor,
-                      value: themeisSwitched,
+                      value:  box.read('theme') ?? false?false:true,
                       onChanged: (value) => setState(() {
-                            themeisSwitched = value;
                             BlocProvider.of<ThemeBloc>(context)
                                 .add(ToggleTheme());
                           })),
@@ -49,9 +48,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 children: [
                   Switch(
                       activeColor: kGreyColor,
-                      value: hideDetailsisSwitched,
+                      value: box.read('isHide') ?? false ? true : false,
                       onChanged: (value) => setState(() {
-                            hideDetailsisSwitched = value;
                             BlocProvider.of<ShowAllDetailsCubit>(context)
                                 .showAllDetails();
                           })),

@@ -11,12 +11,11 @@ class ShowAllDetailsState {
 
 class ShowAllDetailsCubit extends Cubit<ShowAllDetailsState> {
   ShowAllDetailsCubit() : super(ShowAllDetailsState(
-            isHide: box.read('isHide') ?? false?false:true));
+            isHide: box.read('isHide') ?? false?true:false));
 
   void showAllDetails(){
    emit(ShowAllDetailsState(isHide: state.isHide = !state.isHide));
 
    box.write('isHide', state.isHide);
-         state.isHide = box.read('isHide') ?? false;
   }
 }

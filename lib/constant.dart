@@ -22,5 +22,3 @@ List<String> chipsList = [
   'آخرین مطالب',
 ];
 final box = GetStorage();
-bool themeisSwitched=false;
-bool hideDetailsisSwitched = false;

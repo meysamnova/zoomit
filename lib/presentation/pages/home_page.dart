@@ -197,7 +197,7 @@ class HomePage extends StatelessWidget {
                                             .watch<ShowAllDetailsCubit>()
                                             .state;
                                         return testState.isHide
-                                            ? Padding(
+                                            ?Container(): Padding(
                                                 padding: const EdgeInsets.only(
                                                     top: 5),
                                                 child: Row(
@@ -253,8 +253,7 @@ class HomePage extends StatelessWidget {
                                                     const SizedBox(width: 20),
                                                   ],
                                                 ),
-                                              )
-                                            : Container();
+                                              );
                                       }),
                                     ),
 // //!
