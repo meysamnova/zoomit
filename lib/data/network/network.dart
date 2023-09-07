@@ -6,7 +6,10 @@ class Network {
   static getApi() async {
     Response response;
     response = await dio.get(
-        'https://api2.zoomit.ir/editorial/api/articles/browse?PageNumber=1&PageSize=38&Sort=Newest');
+        'https://api2.zoomit.ir/editorial/api/articles/browse?PageNumber=1&PageSize=38&Sort=Newest'
+        // 'https://api2.zoomit.ir/editorial/api/chips/63777df2da61532c32c402ae?v=25&moduleId=63a8485d4b2874b7d661a398'
+        );
+        
     return response;
   }
 

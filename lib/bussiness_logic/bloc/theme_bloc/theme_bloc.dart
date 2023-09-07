@@ -9,7 +9,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc() : super(InitialTheme()) {
     bool isLight = true;
     on<SaveTheme>((event, emit) async {
-      isLight = box.read('theme');
+      isLight = box.read('theme')??true;
       var bb = isLight ? ThemeMode.light : ThemeMode.dark;
       emit(LoadedTheme(themeMode: bb));
     });

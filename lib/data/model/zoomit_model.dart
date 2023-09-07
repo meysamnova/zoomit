@@ -9,7 +9,7 @@ class ZoomitModel {
     required this.isAdvertisement,
     required this.publishedDate,
     required this.readingTime,
-    // required this.author,
+    required this.author,
     required this.coverImageLink,
     required this.linkIsFollow,
     required this.type,
@@ -81,14 +81,14 @@ class CoverImageLink {
   CoverImageLink({
     required this.id,
     required this.fileName,
-    required this.alt,
+    // required this.alt,
     required this.preview,
     required this.width,
     required this.height,
   });
   late final String id;
   late final String fileName;
-  late final String alt;
+  // late final String alt;
   late final String preview;
   late final int width;
   late final int height;
@@ -96,7 +96,7 @@ class CoverImageLink {
   CoverImageLink.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     fileName = json['fileName'];
-    alt = json['alt'];
+    // alt = json['alt'];
     preview = json['preview'];
     width = json['width'];
     height = json['height'];

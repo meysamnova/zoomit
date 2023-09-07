@@ -12,27 +12,31 @@ import 'package:zoomit_bloc/presentation/component/newsDetailDialog.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+  
   @override
   Widget build(BuildContext context) {
+ List<String> chipsList = [
+      'راهنمای خرید',
+      'پربازدیدهای ماه',
+      'آخرین مطالب',
+    ];
+
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey,
         endDrawer: const DrawerWidget(),
-        body: Stack(children: [
-          IconButton(
-              onPressed: () {
-                scaffoldKey.currentState?.openEndDrawer();
-              },
-              icon: const Icon(Icons.menu)),
-          Column(
+        body:Column(
             children: [
-              const Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                Padding(
-                    padding: EdgeInsets.only(right: 50, top: 8, bottom: 8),
-                    child: IgnorePointer(
-                      ignoring:true,
-                      child: Text('زومیت'))),
+              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                const Padding(
+                    padding: EdgeInsets.only(right: 8, top: 8, bottom: 8),
+                    child: IgnorePointer(ignoring: true, child: Text('زومیت'))),
+                IconButton(
+                    onPressed: () {
+                      scaffoldKey.currentState?.openEndDrawer();
+                    },
+                    icon: const Icon(Icons.menu)),
               ]),
               Padding(
                 padding: const EdgeInsets.only(right: 5),
@@ -254,7 +258,7 @@ class HomePage extends StatelessWidget {
               )
             ],
           )
-        ]),
+
       ),
     );
   }
