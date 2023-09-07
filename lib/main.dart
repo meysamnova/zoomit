@@ -7,6 +7,8 @@ import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_bloc.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_state.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/chips_cubit.dart';
+import 'package:zoomit_bloc/bussiness_logic/cubit/hidedetails.dart';
+import 'package:zoomit_bloc/constant.dart';
 import 'package:zoomit_bloc/presentation/pages/home_page.dart';
 import 'package:zoomit_bloc/theme/theme_manager.dart';
 
@@ -31,10 +33,14 @@ class MainApp extends StatelessWidget {
         BlocProvider(
           create: (context) => ChipsCubit(),
         ),
+        BlocProvider(
+          create: (context) => ShowAllDetailsCubit(),
+        ),
+        
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
-          final box = GetStorage();
+
 
           if (box.read('theme') == null) {
             return MaterialApp(
@@ -42,7 +48,7 @@ class MainApp extends StatelessWidget {
               darkTheme: ThemeConfig.darkTheme,
               themeMode: ThemeMode.light,
               debugShowCheckedModeBanner: false,
-              home:   const HomePage(),
+              home: const HomePage(),
             );
           }
           if (state is LoadedTheme) {

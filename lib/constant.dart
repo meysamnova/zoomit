@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 const Color kpurplecolor = Color(0xff6c63ff);
 const kBlackColor = Colors.black;
@@ -15,3 +16,11 @@ int refreshIndicatorIndex = 2;
 final dio = Dio();
 
 final scaffoldKey = GlobalKey<ScaffoldState>();
+List<String> chipsList = [
+  'راهنمای خرید',
+  'پربازدیدهای ماه',
+  'آخرین مطالب',
+];
+final box = GetStorage();
+bool themeisSwitched=false;
+bool hideDetailsisSwitched = false;

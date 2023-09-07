@@ -6,27 +6,22 @@ import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_bloc.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_state.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/chips_cubit.dart';
+import 'package:zoomit_bloc/bussiness_logic/cubit/hidedetails.dart';
 import 'package:zoomit_bloc/constant.dart';
 import 'package:zoomit_bloc/presentation/component/drawer.dart';
 import 'package:zoomit_bloc/presentation/component/newsDetailDialog.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
- List<String> chipsList = [
-      'راهنمای خرید',
-      'پربازدیدهای ماه',
-      'آخرین مطالب',
-    ];
-
     double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        key: scaffoldKey,
-        endDrawer: const DrawerWidget(),
-        body:Column(
+          key: scaffoldKey,
+          endDrawer: const DrawerWidget(),
+          body: Column(
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 const Padding(
@@ -193,60 +188,79 @@ class HomePage extends StatelessWidget {
                                           )
                                         ]),
                                     //!comment
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 5),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            ' ساعت انتشار: ${state.dataList[index].publishedDate.substring(11, 16)}',
-                                            style:
-                                                const TextStyle(fontSize: 10),
-                                          ),
-                                          const SizedBox(width: 20),
-                                          Text(
-                                            state.dataList[index].author
-                                                    ?.fullName ??
-                                                '',
-                                            style:
-                                                const TextStyle(fontSize: 10),
-                                          ),
-                                          Text(
-                                              state.dataList[index]
-                                                      .isAdvertisement
-                                                  ? 'تبلیغات'
-                                                  : '',
-                                              style: const TextStyle(
-                                                  color: kRedColor,
-                                                  fontSize: 10)),
-                                          const SizedBox(width: 20),
-                                          Text(
-                                              state.dataList[index]
-                                                  .totalDiscussCount
-                                                  .toString(),
-                                              style: const TextStyle(
-                                                  fontSize: 10)),
-                                          const SizedBox(width: 5),
-                                          const Icon(Icons.chat_bubble_outline,
-                                              size: 15),
-                                          const SizedBox(width: 20),
-                                          Text(
-                                              state.dataList[index].readingTime
-                                                  .toString(),
-                                              style: const TextStyle(
-                                                  fontSize: 12)),
-                                          const SizedBox(width: 3),
-                                          const Icon(Icons.timer_outlined,
-                                              size: 18),
-                                          const SizedBox(width: 20),
-                                        ],
-                                      ),
-                                    )
+                                    BlocProvider.value(
+                                      value:
+                                          context.read<ShowAllDetailsCubit>(),
+                                      child: Builder(builder: (context) {
+                                        final testState = context
+                                            .watch<ShowAllDetailsCubit>()
+                                            .state;
+                                        return testState.isShow
+                                            ? Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 5),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    Text(
+                                                      ' ساعت انتشار: ${state.dataList[index].publishedDate.substring(11, 16)}',
+                                                      style: const TextStyle(
+                                                          fontSize: 10),
+                                                    ),
+                                                    const SizedBox(width: 20),
+                                                    Text(
+                                                      state
+                                                              .dataList[index]
+                                                              .author
+                                                              ?.fullName ??
+                                                          '',
+                                                      style: const TextStyle(
+                                                          fontSize: 10),
+                                                    ),
+                                                    Text(
+                                                        state.dataList[index]
+                                                                .isAdvertisement
+                                                            ? 'تبلیغات'
+                                                            : '',
+                                                        style: const TextStyle(
+                                                            color: kRedColor,
+                                                            fontSize: 10)),
+                                                    const SizedBox(width: 20),
+                                                    Text(
+                                                        state.dataList[index]
+                                                            .totalDiscussCount
+                                                            .toString(),
+                                                        style: const TextStyle(
+                                                            fontSize: 10)),
+                                                    const SizedBox(width: 5),
+                                                    const Icon(
+                                                        Icons
+                                                            .chat_bubble_outline,
+                                                        size: 15),
+                                                    const SizedBox(width: 20),
+                                                    Text(
+                                                        state.dataList[index]
+                                                            .readingTime
+                                                            .toString(),
+                                                        style: const TextStyle(
+                                                            fontSize: 12)),
+                                                    const SizedBox(width: 3),
+                                                    const Icon(
+                                                        Icons.timer_outlined,
+                                                        size: 18),
+                                                    const SizedBox(width: 20),
+                                                  ],
+                                                ),
+                                              )
+                                            : Container();
+                                      }),
+                                    ),
+// //!
                                   ],
                                 ),
                               ),
-                              const Divider()
+                              const Divider(),
                             ],
                           ),
                         ),
@@ -257,9 +271,7 @@ class HomePage extends StatelessWidget {
                 },
               )
             ],
-          )
-
-      ),
+          )),
     );
   }
 }
