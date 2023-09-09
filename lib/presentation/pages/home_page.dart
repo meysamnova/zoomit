@@ -9,11 +9,15 @@ import 'package:zoomit_bloc/bussiness_logic/cubit/chips_cubit.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/hidedetails.dart';
 import 'package:zoomit_bloc/constant.dart';
 import 'package:zoomit_bloc/presentation/component/drawer.dart';
-import 'package:zoomit_bloc/presentation/component/newsDetailDialog.dart';
+import 'package:zoomit_bloc/presentation/component/newsdetaildialog.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
+  static const List<String> chipsList = [
+    'راهنمای خرید',
+    'پربازدیدهای ماه',
+    'آخرین مطالب',
+  ];
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -34,7 +38,7 @@ class HomePage extends StatelessWidget {
                     icon: const Icon(Icons.menu)),
               ]),
               Padding(
-                padding: const EdgeInsets.only(right: 5,bottom: 5),
+                padding: const EdgeInsets.only(right: 5, bottom: 5),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child:
@@ -145,7 +149,7 @@ class HomePage extends StatelessWidget {
                                                 TextButton(
                                                     child: Text(
                                                       state.dataList[index]
-                                                          .title,
+                                                          .title!,
                                                       softWrap: true,
                                                       textAlign:
                                                           TextAlign.right,
@@ -158,7 +162,7 @@ class HomePage extends StatelessWidget {
                                                     ),
                                                     onPressed: () async {
                                                       final Uri url = Uri.parse(
-                                                          'https://www.zoomit.ir/${state.dataList[index].slug}');
+                                                          'https://www.zoomit.ir/${state.dataList[index].slug!}');
 
                                                       if (!await launchUrl(
                                                           url)) {
@@ -172,8 +176,9 @@ class HomePage extends StatelessWidget {
                                                       const EdgeInsets.only(
                                                           right: 7),
                                                   child: Text(
-                                                      state
-                                                          .dataList[index].lead,
+                                                      state.dataList[index]
+                                                              .lead ??
+                                                          '',
                                                       softWrap: true,
                                                       textAlign:
                                                           TextAlign.right,
@@ -197,7 +202,8 @@ class HomePage extends StatelessWidget {
                                             .watch<ShowAllDetailsCubit>()
                                             .state;
                                         return testState.isHide
-                                            ?Container(): Padding(
+                                            ? Container()
+                                            : Padding(
                                                 padding: const EdgeInsets.only(
                                                     top: 5),
                                                 child: Row(
@@ -205,23 +211,20 @@ class HomePage extends StatelessWidget {
                                                       MainAxisAlignment.end,
                                                   children: [
                                                     Text(
-                                                      ' ساعت انتشار: ${state.dataList[index].publishedDate.substring(11, 16)}',
+                                                      ' ساعت انتشار: ${state.dataList[index].publishedDate!.substring(11, 16)}',
                                                       style: const TextStyle(
                                                           fontSize: 10),
                                                     ),
                                                     const SizedBox(width: 20),
                                                     Text(
-                                                      state
-                                                              .dataList[index]
-                                                              .author
-                                                              ?.fullName ??
-                                                          '',
+                                                      state.dataList[index]
+                                                          .author.fullName!,
                                                       style: const TextStyle(
                                                           fontSize: 10),
                                                     ),
                                                     Text(
                                                         state.dataList[index]
-                                                                .isAdvertisement
+                                                                .isAdvertisement!
                                                             ? 'تبلیغات'
                                                             : '',
                                                         style: const TextStyle(
@@ -230,7 +233,7 @@ class HomePage extends StatelessWidget {
                                                     const SizedBox(width: 20),
                                                     Text(
                                                         state.dataList[index]
-                                                            .totalDiscussCount
+                                                            .totalDiscussCount!
                                                             .toString(),
                                                         style: const TextStyle(
                                                             fontSize: 10)),
@@ -242,7 +245,7 @@ class HomePage extends StatelessWidget {
                                                     const SizedBox(width: 20),
                                                     Text(
                                                         state.dataList[index]
-                                                            .readingTime
+                                                            .readingTime!
                                                             .toString(),
                                                         style: const TextStyle(
                                                             fontSize: 12)),
@@ -256,7 +259,6 @@ class HomePage extends StatelessWidget {
                                               );
                                       }),
                                     ),
-// //!
                                   ],
                                 ),
                               ),
@@ -266,6 +268,11 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ));
+                  }
+                  if (state is ErrorState) {
+                    return Center(
+                      child: Text(state.error),
+                    );
                   }
                   return Container();
                 },

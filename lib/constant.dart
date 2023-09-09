@@ -12,13 +12,7 @@ const kGreenColor = Colors.green;
 const kLightBlueColor = Color(0xFF5886FF);
 const kGreyColor = Color.fromARGB(160, 121, 121, 121);
 const newTaskBorder = Color.fromARGB(11, 176, 176, 176);
-int refreshIndicatorIndex = 2;
 final dio = Dio();
-
 final scaffoldKey = GlobalKey<ScaffoldState>();
-List<String> chipsList = [
-  'راهنمای خرید',
-  'پربازدیدهای ماه',
-  'آخرین مطالب',
-];
+int refreshIndicatorIndex = 2;
 final box = GetStorage();

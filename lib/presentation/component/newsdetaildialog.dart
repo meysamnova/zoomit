@@ -17,26 +17,26 @@ Future<dynamic> newsDetailDialog(
                   Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
                 const Text(':جزئیات خبر '),
                 const SizedBox(height: 10),
-                Text('نویسنده: ${state.dataList[index].author?.fullName ?? ''}',
+                Text('نویسنده: ${state.dataList[index].author.fullName!}',
                     style: const TextStyle(fontSize: 14)),
                 Text(
-                  'زمان خواندن: ${state.dataList[index].readingTime} دقیقه',
+                  'زمان خواندن: ${state.dataList[index].readingTime!} دقیقه',
                   style: const TextStyle(fontSize: 14),
                 ),
                 Text(
-                  ' ساعت انتشار: ${state.dataList[index].publishedDate.substring(11, 16)}',
+                  ' ساعت انتشار: ${state.dataList[index].publishedDate!.substring(11, 16)}',
                   style: const TextStyle(fontSize: 14),
                 ),
                 Text(
-                  ' تاریخ انتشار: ${state.dataList[index].publishedDate.substring(0, 10)}',
+                  ' تاریخ انتشار: ${state.dataList[index].publishedDate!.substring(0, 10)}',
                   style: const TextStyle(fontSize: 14),
                 ),
                 Text(
-                  'تعداد کامنت: ${state.dataList[index].totalDiscussCount}',
+                  'تعداد کامنت: ${state.dataList[index].totalDiscussCount!}',
                   style: const TextStyle(fontSize: 14),
                 ),
                 Text(
-                  ' تعداد لایک : ${state.dataList[index].likesCount}',
+                  ' تعداد لایک : ${state.dataList[index].likesCount!}',
                   style: const TextStyle(fontSize: 14),
                 )
               ]),
