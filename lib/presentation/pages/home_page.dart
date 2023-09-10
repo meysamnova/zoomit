@@ -14,9 +14,10 @@ import 'package:zoomit_bloc/presentation/component/newsdetaildialog.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
   static const List<String> chipsList = [
+        'پربازدیدهای ماه',
     'راهنمای خرید',
-    'پربازدیدهای ماه',
-    'آخرین مطالب',
+    'پربازدیدترین های روز',
+    'آخرین مطالب'
   ];
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,7 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 5, bottom: 5),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
+                  reverse: true,
                   child:
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                     BlocBuilder<ChipsCubit, int>(
@@ -63,20 +65,25 @@ class HomePage extends StatelessWidget {
                                       switch (index) {
                                         case 0:
                                           BlocProvider.of<HomeBloc>(context)
-                                              .add(GetDataGuideEvent());
+                                              .add(
+                                              GetDataMostVisitedMonthEvent());
                                           refreshIndicatorIndex = 0;
                                           break;
                                         case 1:
                                           BlocProvider.of<HomeBloc>(context).add(
-                                              GetDataMostVisitedMonthEvent());
+                                              GetDataGuideEvent());
                                           refreshIndicatorIndex = 1;
-
                                           break;
                                         case 2:
                                           BlocProvider.of<HomeBloc>(context)
-                                              .add(GetDataEvent());
+                                              .add(
+                                                  GetDataMostVisitedDayEvent());
                                           refreshIndicatorIndex = 2;
-
+                                          break;
+                                        case 3:
+                                          BlocProvider.of<HomeBloc>(context)
+                                              .add(GetDataEvent());
+                                          refreshIndicatorIndex = 3;
                                           break;
                                       }
                                     })));
@@ -99,11 +106,13 @@ class HomePage extends StatelessWidget {
                       color: kLightBlueColor,
                       onRefresh: () {
                         return Future(() => BlocProvider.of<HomeBloc>(context)
-                            .add(refreshIndicatorIndex == 2
+                            .add(refreshIndicatorIndex == 3
                                 ? GetDataEvent()
-                                : refreshIndicatorIndex == 0
-                                    ? GetDataGuideEvent()
-                                    : GetDataMostVisitedMonthEvent()));
+                                : refreshIndicatorIndex == 2
+                                    ? GetDataMostVisitedDayEvent()
+                                    : refreshIndicatorIndex == 1
+                                        ? GetDataGuideEvent()
+                                        : GetDataMostVisitedMonthEvent()));
                       },
                       child: ListView.builder(
                         itemCount: state.dataList.length,
@@ -222,14 +231,14 @@ class HomePage extends StatelessWidget {
                                                       style: const TextStyle(
                                                           fontSize: 10),
                                                     ),
-                                                    Text(
-                                                        state.dataList[index]
-                                                                .isAdvertisement!
-                                                            ? 'تبلیغات'
-                                                            : '',
-                                                        style: const TextStyle(
-                                                            color: kRedColor,
-                                                            fontSize: 10)),
+                                                    // Text(
+                                                    //     state.dataList[index]
+                                                    //             .isAdvertisement!
+                                                    //         ? 'تبلیغات'
+                                                    //         : '',
+                                                    //     style: const TextStyle(
+                                                    //         color: kRedColor,
+                                                    //         fontSize: 10)),
                                                     const SizedBox(width: 20),
                                                     Text(
                                                         state.dataList[index]

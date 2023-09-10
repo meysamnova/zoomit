@@ -9,6 +9,11 @@ class ThemeConfig {
       scaffoldBackgroundColor: const Color.fromARGB(2555, 2555, 2555, 255),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
+
+           padding: MaterialStateProperty.all(const EdgeInsets.only(right: 7,bottom: 25,top: 0)),
+  
+          visualDensity:  const VisualDensity(vertical: -4), 
+
           splashFactory: NoSplash.splashFactory,
           overlayColor: MaterialStateProperty.all(Colors.transparent),
           foregroundColor: MaterialStateProperty.all(kBlackColor),
@@ -35,6 +40,7 @@ class ThemeConfig {
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           splashFactory: NoSplash.splashFactory,
+
           overlayColor: MaterialStateProperty.all(Colors.transparent),
           foregroundColor: MaterialStateProperty.all(
               const Color.fromARGB(255, 232, 226, 216)),

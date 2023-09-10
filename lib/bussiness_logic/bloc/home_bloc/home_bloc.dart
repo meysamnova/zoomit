@@ -11,6 +11,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   late Response response;
 
   HomeBloc() : super(LadingState()) {
+    //!last
     on<GetDataEvent>((event, emit) async {
       try {
         response = await Network.getApi();
@@ -39,10 +40,21 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(LoadedState(zoomitList));
     });
 
-    //!آموزش های کاربردی
+    //! پربازدیدترین های ماه
     on<GetDataMostVisitedMonthEvent>((event, emit) async {
       var response = await Network.getMostVisitedMonthApi();
       List<dynamic> rawData = response.data['items'];
+      zoomitList.clear();
+      for (var element in rawData) {
+        zoomitList.add(ZoomitModel.fromJson(element));
+      }
+      emit(LoadedState(zoomitList));
+    });
+
+        //! پربازدیدترین های روز
+    on<GetDataMostVisitedDayEvent>((event, emit) async {
+      var response = await Network.getMostVisitedDayApi();
+      List<dynamic> rawData = response.data['source'];
       zoomitList.clear();
       for (var element in rawData) {
         zoomitList.add(ZoomitModel.fromJson(element));

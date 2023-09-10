@@ -6,7 +6,7 @@ class ZoomitModel {
     required this.lead,
     // required this.subHeadline,
     // required this.isFeatured,
-    required this.isAdvertisement,
+    // required this.isAdvertisement,
     required this.publishedDate,
     required this.readingTime,
     required this.author,
@@ -18,7 +18,7 @@ class ZoomitModel {
     required this.likesCount,
   }) {
     publishedDate = publishedDate ?? '';
-    isAdvertisement = isAdvertisement ?? false;
+    // isAdvertisement = isAdvertisement ?? false;
     slug = slug ?? '';
     title = title ?? '';
     lead = lead ?? '';
@@ -32,7 +32,7 @@ class ZoomitModel {
   late final String? lead;
   // late final String subHeadline;
   // late final bool isFeatured;
-  late final bool? isAdvertisement;
+  // late final bool? isAdvertisement;
   late final String? publishedDate;
   late final int? readingTime;
   late final Author author;
@@ -50,7 +50,7 @@ class ZoomitModel {
     lead = json['lead'];
     // subHeadline = json['subHeadline'];
     // isFeatured = json['isFeatured'];
-    isAdvertisement = json['isAdvertisement'];
+    // isAdvertisement = json['isAdvertisement'];
     publishedDate = json['publishedDate'];
     readingTime = json['readingTime'];
     author = Author.fromJson(json['author']);
