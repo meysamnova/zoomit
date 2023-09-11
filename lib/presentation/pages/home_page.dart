@@ -14,7 +14,7 @@ import 'package:zoomit_bloc/presentation/component/newsdetaildialog.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
   static const List<String> chipsList = [
-        'پربازدیدهای ماه',
+    'پربازدیدهای ماه',
     'راهنمای خرید',
     'پربازدیدترین های روز',
     'آخرین مطالب'
@@ -64,14 +64,13 @@ class HomePage extends StatelessWidget {
                                           .indexChips(index);
                                       switch (index) {
                                         case 0:
-                                          BlocProvider.of<HomeBloc>(context)
-                                              .add(
+                                          BlocProvider.of<HomeBloc>(context).add(
                                               GetDataMostVisitedMonthEvent());
                                           refreshIndicatorIndex = 0;
                                           break;
                                         case 1:
-                                          BlocProvider.of<HomeBloc>(context).add(
-                                              GetDataGuideEvent());
+                                          BlocProvider.of<HomeBloc>(context)
+                                              .add(GetDataGuideEvent());
                                           refreshIndicatorIndex = 1;
                                           break;
                                         case 2:
@@ -121,6 +120,14 @@ class HomePage extends StatelessWidget {
                           onLongPress: () {
                             newsDetailDialog(context, width, state, index);
                           },
+                          onTap: () async {
+                            final Uri url = Uri.parse(
+                                'https://www.zoomit.ir/${state.dataList[index].slug!}');
+
+                            if (!await launchUrl(url)) {
+                              throw Exception('Could not launch $url');
+                            }
+                          },
                           child: Column(
                             children: [
                               Padding(
@@ -155,30 +162,26 @@ class HomePage extends StatelessWidget {
                                                   CrossAxisAlignment.end,
                                               children: [
                                                 //!title
-                                                TextButton(
-                                                    child: Text(
-                                                      state.dataList[index]
-                                                          .title!,
-                                                      softWrap: true,
-                                                      textAlign:
-                                                          TextAlign.right,
-                                                      textDirection:
-                                                          TextDirection.rtl,
-                                                      style: TextStyle(
-                                                          fontSize: width < 800
-                                                              ? 13
-                                                              : 20),
-                                                    ),
-                                                    onPressed: () async {
-                                                      final Uri url = Uri.parse(
-                                                          'https://www.zoomit.ir/${state.dataList[index].slug!}');
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                    right: 7,
+                                                    bottom: 7,
+                                                  ),
+                                                  child: Text(
+                                                    state
+                                                        .dataList[index].title!,
+                                                    softWrap: true,
+                                                    textAlign: TextAlign.right,
+                                                    textDirection:
+                                                        TextDirection.rtl,
+                                                    style: TextStyle(
+                                                        fontSize: width < 800
+                                                            ? 13
+                                                            : 20),
+                                                  ),
+                                                ),
 
-                                                      if (!await launchUrl(
-                                                          url)) {
-                                                        throw Exception(
-                                                            'Could not launch $url');
-                                                      }
-                                                    }),
                                                 //!lead
                                                 Padding(
                                                   padding:

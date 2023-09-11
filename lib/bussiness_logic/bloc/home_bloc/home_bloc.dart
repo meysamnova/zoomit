@@ -51,7 +51,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(LoadedState(zoomitList));
     });
 
-        //! پربازدیدترین های روز
+    //! پربازدیدترین های روز
     on<GetDataMostVisitedDayEvent>((event, emit) async {
       var response = await Network.getMostVisitedDayApi();
       List<dynamic> rawData = response.data['source'];

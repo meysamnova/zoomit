@@ -36,12 +36,9 @@ class MainApp extends StatelessWidget {
         BlocProvider(
           create: (context) => ShowAllDetailsCubit(),
         ),
-        
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
-
-
           if (box.read('theme') == null) {
             return MaterialApp(
               theme: ThemeConfig.lightTheme,
