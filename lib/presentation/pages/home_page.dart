@@ -209,11 +209,8 @@ class HomePage extends StatelessWidget {
                                     BlocProvider.value(
                                       value:
                                           context.read<ShowAllDetailsCubit>(),
-                                      child: Builder(builder: (context) {
-                                        final testState = context
-                                            .watch<ShowAllDetailsCubit>()
-                                            .state;
-                                        return testState.isHide
+                                      child: Builder(builder: (context) {                                 
+                                        return context.watch<ShowAllDetailsCubit>().state.isHide
                                             ? Container()
                                             : Padding(
                                                 padding: const EdgeInsets.only(
