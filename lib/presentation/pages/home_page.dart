@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 const Padding(
                     padding: EdgeInsets.only(right: 8, top: 8, bottom: 8),
-                    child: IgnorePointer(ignoring: true, child: Text('زومیت'))),
+                    child: Text('زومیت')),
                 IconButton(
                     onPressed: () {
                       scaffoldKey.currentState?.openEndDrawer();
@@ -234,14 +234,6 @@ class HomePage extends StatelessWidget {
                                                       style: const TextStyle(
                                                           fontSize: 10),
                                                     ),
-                                                    // Text(
-                                                    //     state.dataList[index]
-                                                    //             .isAdvertisement!
-                                                    //         ? 'تبلیغات'
-                                                    //         : '',
-                                                    //     style: const TextStyle(
-                                                    //         color: kRedColor,
-                                                    //         fontSize: 10)),
                                                     const SizedBox(width: 20),
                                                     Text(
                                                         state.dataList[index]

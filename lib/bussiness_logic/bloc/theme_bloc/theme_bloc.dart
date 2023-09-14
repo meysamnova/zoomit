@@ -6,8 +6,8 @@ import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   final box = GetStorage();
-  ThemeBloc() : super(InitialTheme()) {
     bool isLight = true;
+  ThemeBloc() : super(InitialTheme()) {
     on<SaveTheme>((event, emit) async {
       isLight = box.read('theme')??true;
       var bb = isLight ? ThemeMode.light : ThemeMode.dark;
