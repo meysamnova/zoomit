@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Scaffold(
           key: scaffoldKey,
@@ -113,7 +114,7 @@ class HomePage extends StatelessWidget {
                                         ? GetDataGuideEvent()
                                         : GetDataMostVisitedMonthEvent()));
                       },
-                      child: ListView.builder(
+                      child: ListView.builder(  
                         itemCount: state.dataList.length,
                         itemBuilder: (context, index) => GestureDetector(
                           behavior: HitTestBehavior.translucent,
@@ -143,13 +144,10 @@ class HomePage extends StatelessWidget {
                                           SizedBox(
                                             height: 100,
                                             width: 100,
-                                            child: CachedNetworkImage(
+                                            child:
+                                             CachedNetworkImage(
                                               imageUrl:
                                                   "https://api2.zoomit.ir/media/${state.dataList[index].coverImageLink.id}",
-                                              progressIndicatorBuilder:
-                                                  (context, url,
-                                                          downloadProgress) =>
-                                                      Container(),
                                               errorWidget:
                                                   (context, url, error) =>
                                                       const Icon(Icons.error),
@@ -209,8 +207,11 @@ class HomePage extends StatelessWidget {
                                     BlocProvider.value(
                                       value:
                                           context.read<ShowAllDetailsCubit>(),
-                                      child: Builder(builder: (context) {                                 
-                                        return context.watch<ShowAllDetailsCubit>().state.isHide
+                                      child: Builder(builder: (context) {
+                                        return context
+                                                .watch<ShowAllDetailsCubit>()
+                                                .state
+                                                .isHide
                                             ? Container()
                                             : Padding(
                                                 padding: const EdgeInsets.only(

@@ -9,22 +9,21 @@ import 'package:zoomit_bloc/data/network/network.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   static List<ZoomitModel> zoomitList = [];
   late Response response;
-
   HomeBloc() : super(LadingState()) {
     //!last
     on<GetDataEvent>((event, emit) async {
       try {
         response = await Network.getApi();
-        if (response.statusCode == 200) {
-          List<dynamic> rawData = response.data['source'];
-          zoomitList.clear();
-          for (var element in rawData) {
-            zoomitList.add(ZoomitModel.fromJson(element));
-          }
+
+        List<dynamic> rawData = response.data['source'];
+        zoomitList.clear();
+        for (var element in rawData) {
+          zoomitList.add(ZoomitModel.fromJson(element));
+
           emit(LoadedState(zoomitList));
         }
       } catch (e) {
-        emit(ErrorState(e.toString()));
+        emit(ErrorState('Network Error'));
       }
     });
 
