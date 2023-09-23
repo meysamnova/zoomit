@@ -6,7 +6,9 @@ This is a news Flutter app using Bloc for state management.
 
 ## Features
 - Filter news
-- Display latest news 
+- Display latest news
+- show details news
+- customize news details 
 - Open news in browser 
 - Show number of comments
 - Switch light/dark theme
