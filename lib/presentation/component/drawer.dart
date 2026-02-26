@@ -33,7 +33,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 children: [
                   Switch(
                       inactiveTrackColor: Colors.transparent,
-                      activeColor: kGreenColor,
+                      activeThumbColor: kGreenColor,
                       value: box.read('theme') ?? true ? false : true,
                       onChanged: (value) => setState(() {
                             BlocProvider.of<ThemeBloc>(context)
@@ -48,7 +48,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 children: [
                   Switch(
                       inactiveTrackColor: Colors.transparent,
-                      activeColor: kGreenColor,
+                      activeThumbColor: kGreenColor,
                       value: box.read('isHide') ?? false ? true : false,
                       onChanged: (value) => setState(() {
                             BlocProvider.of<ShowAllDetailsCubit>(context)
@@ -80,9 +80,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                                     width: ScreenSize(context).width() / 1.4,
                                     child: Column(
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                            CrossAxisAlignment.center,
                                         children: [
-                                          const Text('About'),
+                                          const Text('Developed by'),
+                                          const Text('Meysam Shamadil',style: TextStyle(fontWeight: FontWeight.bold),),
                                           const SizedBox(height: 10),
                                           TextButton(
                                               onPressed: () async {
@@ -123,7 +124,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                               );
                             });
                       },
-                      child: const Text('about')),
+                      child: const Text('About')),
                 ],
               )
             ],

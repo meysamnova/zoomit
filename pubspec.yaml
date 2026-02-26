@@ -4,19 +4,19 @@ publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
+  sdk: ^3.9.2
 
 dependencies:
-  cached_network_image: ^3.2.3
-  dio: ^5.3.2
+  cached_network_image: ^3.4.1
+  dio: ^5.9.1
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.3
+  flutter_bloc: ^9.1.1
   get_storage: ^2.1.1
-  google_fonts: ^5.1.0
-  url_launcher: ^6.1.14
+  google_fonts: ^8.0.2
+  url_launcher: ^6.3.2
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
 

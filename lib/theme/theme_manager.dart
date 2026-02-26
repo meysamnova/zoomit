@@ -9,8 +9,8 @@ class ThemeConfig {
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           splashFactory: NoSplash.splashFactory,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
-          foregroundColor: MaterialStateProperty.all(kBlackColor),
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
+          foregroundColor: WidgetStateProperty.all(kBlackColor),
         ),
       ),
       scaffoldBackgroundColor: const Color.fromARGB(2555, 2555, 2555, 255),
@@ -34,8 +34,8 @@ class ThemeConfig {
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           splashFactory: NoSplash.splashFactory,
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
-          foregroundColor: MaterialStateProperty.all(
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
+          foregroundColor: WidgetStateProperty.all(
               const Color.fromARGB(255, 232, 226, 216)),
         ),
       ),

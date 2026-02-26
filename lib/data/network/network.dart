@@ -6,7 +6,8 @@ class Network {
   static getApi() async {
     Response response;
     response = await dio.get(
-        'https://api2.zoomit.ir/editorial/api/articles/browse?PageNumber=1&PageSize=38&Sort=Newest');
+      'https://api2.zoomit.ir/editorial/api/articles/browse?PageNumber=1&PageSize=38&Sort=Newest',
+    );
     return response;
   }
 
@@ -14,7 +15,8 @@ class Network {
   static getBuyGuideApi() async {
     Response response;
     response = await dio.get(
-        'https://api2.zoomit.ir/editorial/api/chips/6381c78b634194c22bb6433e?v=25&moduleId=6381ed7d634194c22bb6434f');
+      'https://api2.zoomit.ir/forgecomposer/api/chips/63aae00cce1ac9b6819781e5?page=home',
+    );
     return response;
   }
 
@@ -22,15 +24,17 @@ class Network {
   static getMostVisitedDayApi() async {
     Response response;
     response = await dio.get(
-        'https://api2.zoomit.ir/editorial/api/articles/browse?PageNumber=1&PageSize=30&PublishDate=Last24Hours&Sort=MostPopular');
+      'https://api2.zoomit.ir/editorial/api/articles/browse?PageNumber=1&PageSize=30&PublishDate=Last24Hours&Sort=MostPopular',
+    );
     return response;
   }
 
-  //! پربازدیدترین های ماه
+  //! محبوب ترین ها
   static getMostVisitedMonthApi() async {
     Response response;
     response = await dio.get(
-        'https://api2.zoomit.ir/editorial/api/chips/6381ec88634194c22bb64345?v=25&moduleId=6381ee2c634194c22bb64355');
+      'https://api2.zoomit.ir/forgecomposer/api/chips/6381eca1634194c22bb64348?page=home',
+    );
     return response;
   }
 }
