@@ -72,11 +72,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                             builder: (BuildContext context) {
                               return Dialog(
                                 child: SizedBox(
-                                  height: 200,
+                                  height: 240,
                                   width: 100,
                                   child: Container(
                                     margin: const EdgeInsets.only(
-                                        top: 20, left: 20),
+                                        top: 25, left: 20),
                                     width: ScreenSize(context).width() / 1.4,
                                     child: Column(
                                         crossAxisAlignment:
