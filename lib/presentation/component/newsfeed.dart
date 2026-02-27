@@ -7,7 +7,7 @@ import '../../business_logic/bloc/home_bloc/home_bloc.dart';
 import '../../business_logic/bloc/home_bloc/home_event.dart';
 import '../../business_logic/bloc/home_bloc/home_state.dart';
 import '../../business_logic/cubit/hidedetails.dart';
-import 'newsdetaildialog.dart';
+import 'newsdetailpopup.dart';
 
 class NewsFeedComponent extends StatelessWidget {
   const NewsFeedComponent({super.key});
@@ -96,6 +96,7 @@ class NewsFeedComponent extends StatelessWidget {
                                           textDirection: TextDirection.rtl,
                                           style: TextStyle(
                                             fontSize: width < 800 ? 13 : 20,
+                                            fontWeight: FontWeight.bold
                                           ),
                                         ),
                                       ),

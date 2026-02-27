@@ -18,18 +18,17 @@ class ChipsComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 5, bottom: 5),
+      padding: const EdgeInsets.only(right: 5, bottom: 12, left: 5),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-
         reverse: true,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             BlocBuilder<ChipsCubit, int>(
               builder: (context, state) {
-                return Wrap(
-                  spacing: 8,
+                return Row(
+                  spacing: 5,
                   children: List.generate(
                     chipsList.length,
                     (index) => ChoiceChip(
@@ -41,6 +40,10 @@ class ChipsComponent extends StatelessWidget {
 
                       label: Text(
                         chipsList[index],
+                        textDirection: TextDirection.rtl,
+                        maxLines: 1,
+                        softWrap: false,
+                        overflow: TextOverflow.visible,
                         style: const TextStyle(fontSize: 12),
                       ),
                       selected: state == index,
