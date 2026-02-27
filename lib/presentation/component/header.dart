@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constant.dart';
+import '../../theme/constant.dart';
 
 class HeaderComponent extends StatelessWidget {
   const HeaderComponent({super.key});

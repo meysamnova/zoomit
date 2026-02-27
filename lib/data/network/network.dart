@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:zoomit_bloc/constant.dart';
+import 'package:zoomit_bloc/theme/constant.dart';
 
 class Network {
   //! آخرین مطالب

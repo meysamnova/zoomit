@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:zoomit_bloc/constant.dart';
+import 'package:zoomit_bloc/theme/constant.dart';
 import '../../bussiness_logic/bloc/home_bloc/home_bloc.dart';
 import '../../bussiness_logic/bloc/home_bloc/home_event.dart';
 import '../../bussiness_logic/bloc/home_bloc/home_state.dart';

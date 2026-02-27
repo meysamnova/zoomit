@@ -1,6 +1,6 @@
 //!state
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zoomit_bloc/constant.dart';
+import 'package:zoomit_bloc/theme/constant.dart';
 
 class ShowAllDetailsState {
    bool  isHide;

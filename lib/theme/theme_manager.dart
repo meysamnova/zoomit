@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zoomit_bloc/constant.dart';
+import 'package:zoomit_bloc/theme/constant.dart';
 
 class ThemeConfig {
 //! lIGHT

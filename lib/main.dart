@@ -8,7 +8,7 @@ import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_state.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/chips_cubit.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/hidedetails.dart';
-import 'package:zoomit_bloc/constant.dart';
+import 'package:zoomit_bloc/theme/constant.dart';
 import 'package:zoomit_bloc/presentation/pages/home_page.dart';
 import 'package:zoomit_bloc/theme/theme_manager.dart';
 

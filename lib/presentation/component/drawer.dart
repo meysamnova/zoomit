@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_bloc.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/theme_bloc/theme_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/hidedetails.dart';
-import 'package:zoomit_bloc/constant.dart';
+import 'package:zoomit_bloc/theme/constant.dart';
 import 'package:zoomit_bloc/presentation/utils/extension.dart';
 
 import 'about_popup.dart';

@@ -7,7 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_bloc.dart';
 import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_event.dart';
 import 'package:zoomit_bloc/bussiness_logic/cubit/chips_cubit.dart';
-import 'package:zoomit_bloc/constant.dart';
+import 'package:zoomit_bloc/theme/constant.dart';
 
 class ChipsComponent extends StatelessWidget {
   const ChipsComponent({super.key});
