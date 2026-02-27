@@ -20,7 +20,7 @@ class AboutPopup extends StatelessWidget {
                     height: 240,
                     width: 100,
                     child: Container(
-                      margin: const EdgeInsets.only(top: 25, left: 20),
+                      margin: const EdgeInsets.only(top: 25),
                       width: ScreenSize(context).width() / 1.4,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
