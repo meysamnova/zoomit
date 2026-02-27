@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_state.dart';
+import 'package:zoomit_bloc/business_logic/bloc/home_bloc/home_state.dart';
 
 Future<dynamic> newsDetailDialog(
   BuildContext context,

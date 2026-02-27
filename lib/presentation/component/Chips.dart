@@ -4,9 +4,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_bloc.dart';
-import 'package:zoomit_bloc/bussiness_logic/bloc/home_bloc/home_event.dart';
-import 'package:zoomit_bloc/bussiness_logic/cubit/chips_cubit.dart';
+import 'package:zoomit_bloc/business_logic/bloc/home_bloc/home_bloc.dart';
+import 'package:zoomit_bloc/business_logic/bloc/home_bloc/home_event.dart';
+import 'package:zoomit_bloc/business_logic/cubit/chips_cubit.dart';
 import 'package:zoomit_bloc/theme/constant.dart';
 
 class ChipsComponent extends StatelessWidget {
