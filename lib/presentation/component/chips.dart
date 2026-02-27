@@ -9,8 +9,8 @@ class ChipsComponent extends StatelessWidget {
   const ChipsComponent({super.key});
 
   static const List<String> chipsList = [
-    'محبوب ترین',
     'راهنمای خرید',
+    'محبوب ترین',
     'پربازدیدترین های روز',
     'آخرین مطالب',
   ];
