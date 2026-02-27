@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zoomit_bloc/theme/constant.dart';
 import 'package:zoomit_bloc/presentation/component/drawer.dart';
-import '../component/Chips.dart';
+import '../component/chips.dart';
 import '../component/header.dart';
 import '../component/newsfeed.dart';
 
